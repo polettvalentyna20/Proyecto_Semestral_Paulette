@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+
+          <ion-label class="custom-center">Bienvenido {{ nombreUsuario }} al Registro de Asistencia</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="login-page">
+  <div class="container">
+        <img src="/assets/logo.png" alt="" style="width:20%">
+  <div class="imagen-qr">
+    <ion-img class="logo-qr" src="https://es.mailpro.com/blog/image.axd?picture=/QRCODES.png"class="logo" alt="Descripción de la imagen">
+    </ion-img>
+    </div>
+    <div class="qr-container">
+
+
+      <div class="message">
+        Escanea el código QR
+      </div>
+      <div class="centered-content">
+        <zxing-scanner #scanner start="true" [device]="currentDevice || undefined" (scanSuccess)="handleQrCodeResult($event)" [formats]="formats" class="qr-scanner">
+            <div class="qr-frame"></div>
+        </zxing-scanner>
+      </div>
+    </div>
+    
+  </div>
+  <ion-row class="ion-justify-content-center">
+    <button [routerLink]="['/login']">Regresar al Login</button>
+  </ion-row>
+  
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logo_DuocUC.svg/2560px-Logo_DuocUC.svg.png" alt="Descripción de la imagen" />
+</ion-content>
+
+

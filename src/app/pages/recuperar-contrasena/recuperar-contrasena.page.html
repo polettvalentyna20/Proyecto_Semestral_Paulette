@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-title class="app-title">Recuperar Contraseña</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <ion-card class="card">
+      <ion-card-content class="ion-text-center">
+        <ion-item class="ion-margin">
+          <ion-label position="floating">Ingrese su usuario:</ion-label>
+          <ion-input minlength="6" maxlength="10" type="text" [(ngModel)]="nombreUsuarioInput"></ion-input>
+        </ion-item>
+        <ion-item class="ion-margin">
+          <ion-label position="floating">Ingrese su rut:</ion-label>
+          <ion-input maxlength="9" type="text" [(ngModel)]="rutUsuarioInput"></ion-input>
+        </ion-item>
+        <ion-button shape="round" expand="full" (click)="buscarContrasena()" class="ion-margin-top">Recuperar contraseña</ion-button>
+        <ion-label>{{ resultadoContrasena }}</ion-label>
+      </ion-card-content>
+    </ion-card>
+    <ion-row class="ion-justify-content-center">
+      <button [routerLink]="['/login']">Regresar al Login</button>
+    </ion-row>
+  </div>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logo_DuocUC.svg/2560px-Logo_DuocUC.svg.png" alt="Descripción de la imagen" />
+</ion-content>

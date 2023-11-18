@@ -1,0 +1,67 @@
+<ion-content [fullscreen]="true" class="login-page">
+  <div class="container">
+    <ion-card-header class="login-header">
+      <ion-title class="app-title">Inicio Sesion</ion-title>
+    </ion-card-header>
+    <div class="form-group">
+      <ion-card class="login-card">
+        <ion-card-content>
+          <form [formGroup]="formularioLogin" class="login-form">
+            <ion-item class="control-group">
+              <ion-label class="login-field-icon fui-user" position="floating">Usuario</ion-label>
+              <ion-input
+                formControlName="nombre"
+                class="login-field input-field"
+                pattern="^[a-zA-Z0-9]{3,8}$"
+                minlength="4"
+                maxlength="10"
+              ></ion-input>
+              <ion-note *ngIf="formularioLogin.get('nombre')?.hasError('pattern')" color="danger">
+                El usuario lleva de 6 a 10 caracteres.
+              </ion-note>
+            </ion-item>
+            <ion-item class="control-group">
+              <ion-label class="login-field-icon fui-lock" position="floating">Contraseña</ion-label>
+              <ion-input
+                formControlName="password"
+                type="password"
+                class="login-field input-field"
+                pattern="^\d{4}$"
+                maxlength="4"
+              ></ion-input>
+              <ion-note *ngIf="formularioLogin.get('password')?.hasError('pattern')" color="danger">
+                La contraseña debe contener 4 digitos.
+              </ion-note>
+            </ion-item>
+          </form>
+          <ion-button
+            (click)="ingresar()"
+            class="ion-margin-top"
+            expand="full"
+            shape="round"
+            fill="solid"
+            color="primary"
+          >
+            Ingresar
+          </ion-button>
+          <ion-buttons
+            class="register-button"
+            slot="end"
+            style="display: flex; justify-content: center; width: 100%;"
+          >
+            <ion-button [routerLink]="['/registro']" size="small" class="btns-login" fill="clear" color="primary">
+              Registrarse
+            </ion-button>
+            <ion-button [routerLink]="['/recuperar-contrasena']" class="btns-login" size="small" fill="clear" color="primary">
+              Recuperar Contraseña
+            </ion-button>
+          </ion-buttons>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logo_DuocUC.svg/2560px-Logo_DuocUC.svg.png"
+    alt="Descripción de la imagen"
+  />
+</ion-content>
